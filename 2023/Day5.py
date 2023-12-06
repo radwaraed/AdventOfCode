@@ -38,7 +38,6 @@ for seed in seeds:
         for element in master_dict[item]:
             source,destination,length = element.split(" ")
             for element in master_dict[item]:
-                element_list = element.split(" ")
                 destination,source,length = map(lambda x:int(x),element.split(" "))
                 if newdestination in range(source,source+length):
                     diff = newdestination - source
@@ -102,23 +101,19 @@ while x != "found":
         newdestination = minimum_destination
 
     for item in ["seed-to-soil map:","soil-to-fertilizer map:","fertilizer-to-water map:","water-to-light map:","light-to-temperature map:","temperature-to-humidity map:"][::-1]:
-        #print(item)
         done = 0
         for element in master_dict[item]:
             destination,source,length = map(lambda x:int(x),element.split(" "))
             for element in master_dict[item]:
-                element_list = element.split(" ")
                 destination,source,length = map(lambda x:int(x),element.split(" "))
                 if newdestination in range(destination,destination+length):
                     diff = newdestination - destination
                     newdestination = source + diff   
-                    #print("newdestination " + str(newdestination))
                     done = 1
                     break
             break
         if done == 0:
             newdestination = newdestination
-            #print("newdestination " + str(newdestination))
 
     #check if soil destination corresponds to an existing seed number 
     for start,length in starts.items():
