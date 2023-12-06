@@ -25,14 +25,12 @@ for seed in seeds:
     seed = int(seed)
     done = 0
     for element in master_dict["seed-to-soil map:"]:
-        source,destination,length = element.split(" ")
-        for element in master_dict["seed-to-soil map:"]:
-            element_list = element.split(" ")
-            destination,source,length = map(lambda x:int(x),element.split(" "))
-            if seed in range(source,source+length):
-                diff = seed - source
-                newdestination = destination + diff
-                done = 1
+        element_list = element.split(" ")
+        destination,source,length = map(lambda x:int(x),element.split(" "))
+        if seed in range(source,source+length):
+            diff = seed - source
+            newdestination = destination + diff
+            done = 1
     if done == 0:
         newdestination = seed
                     
