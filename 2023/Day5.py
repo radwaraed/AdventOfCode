@@ -25,7 +25,6 @@ for seed in seeds:
     seed = int(seed)
     done = 0
     for element in master_dict["seed-to-soil map:"]:
-        element_list = element.split(" ")
         destination,source,length = map(lambda x:int(x),element.split(" "))
         if seed in range(source,source+length):
             diff = seed - source
